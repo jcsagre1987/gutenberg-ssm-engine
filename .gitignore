@@ -1,0 +1,16 @@
+# Ignore local memory cache & model weights
+gutenberg_memory.json
+*.gguf
+*.bin
+*.onnx
+
+# Ignore build directories and debug files
+build/
+onnxruntime/
+*.pdb
+*.pkg
+*.pyz
+
+# Ignore Python caches
+__pycache__/
+*.pyc
