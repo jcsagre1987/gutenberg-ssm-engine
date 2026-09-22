@@ -1,0 +1,21 @@
+==================================================
+GUTENBERG SSM EDGE ENGINE - INSTALLATION GUIDE (v2.1)
+==================================================
+
+1. PREREQUISITES
+   - Python 3.10 or higher installed.
+   - Git installed for version control.
+
+2. ENVIRONMENT SETUP
+   Open your terminal or command prompt, navigate to your chosen working directory where you want to store the engine files, and set up your workspace.
+
+3. DEPENDENCY INSTALLATION
+   Install all required backend packages and local inference libraries:
+   pip install fastapi uvicorn llama-cpp-python huggingface-hub duckduckgo-search chromadb datasets transformers peft trl
+
+4. REQUIRED PROJECT FILES
+   Ensure the following core files are present in your project directory:
+   - server.py (FastAPI backend & guardrails)
+   - conversationandsocialguidereference.json (Social dialogue persona mapping)
+   - knowledgebasereference.json (Centralized factual knowledge base)
+   - index.html (Local frontend web UI)

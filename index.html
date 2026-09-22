@@ -3,339 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutenberg SSM Local Engine</title>
+    <title>Gutenberg SSM Engine</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --panel-color: #1e293b;
-            --border-color: #334155;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #3b82f6;
-            --accent-hover: #2563eb;
-            --user-bubble: #2563eb;
-            --ai-bubble: #1e293b;
+            --bg-color: #0b0f19;
+            --sidebar-bg: #111827;
+            --chat-bg: #0d1322;
+            --card-bg: #1f2937;
+            --user-bubble: #1d4ed8;
+            --assistant-bubble: #1e293b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-blue: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success-green: #10b981;
+            --error-red: #ef4444;
+            --border-color: #374151;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        sidebar {
-            width: 280px;
-            background-color: var(--panel-color);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .sidebar-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        select, input {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 8.5px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        select:focus, input:focus {
-            border-color: var(--accent-color);
-        }
-
-        .chat-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            position: relative;
-        }
-
-        .chat-header {
-            padding: 15px 25px;
-            background-color: var(--panel-color);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h1 {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
-        }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            scroll-behavior: smooth;
-        }
-
-        .message {
-            max-width: 75%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            line-height: 1.5;
-            font-size: 0.95rem;
-            word-wrap: break-word;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .message.assistant {
-            background-color: var(--ai-bubble);
-            border: 1px solid var(--border-color);
-            align-self: flex-start;
-            border-top-left-radius: 2px;
-        }
-
-        .message.user {
-            background-color: var(--user-bubble);
-            color: white;
-            align-self: flex-end;
-            border-top-right-radius: 2px;
-        }
-
-        .chat-input-area {
-            padding: 20px 25px;
-            background-color: var(--panel-color);
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            gap: 12px;
-        }
-
-        .chat-input-area textarea {
-            flex: 1;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 12px;
-            border-radius: 8px;
-            resize: none;
-            height: 50px;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .chat-input-area textarea:focus {
-            border-color: var(--accent-color);
-        }
-
-        .send-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .send-btn:hover {
-            background-color: var(--accent-hover);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 280px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+        .sidebar h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .param-group { display: flex; flex-direction: column; gap: 8px; }
+        .param-group label { font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: space-between; }
+        .param-group select, .param-group input[type="number"] { background-color: #1a2234; border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; outline: none; }
+        .param-group input[type="range"] { width: 100%; accent-color: var(--accent-blue); }
+        .main-container { flex: 1; display: flex; flex-direction: column; background-color: var(--chat-bg); }
+        .header { padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 1.25rem; font-weight: 700; }
+        .status-badge { font-size: 0.8rem; display: flex; align-items: center; gap: 6px; color: var(--text-muted); }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #ef4444; }
+        .status-dot.connected { background-color: var(--success-green); }
+        .chat-box { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+        .message-wrapper { display: flex; flex-direction: column; max-width: 75%; }
+        .message-wrapper.user { align-self: flex-end; align-items: flex-end; }
+        .message-wrapper.assistant { align-self: flex-start; align-items: flex-start; }
+        .bubble { padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; word-break: break-word; }
+        .user .bubble { background-color: var(--user-bubble); color: #ffffff; border-bottom-right-radius: 2px; }
+        .assistant .bubble { background-color: var(--assistant-bubble); color: var(--text-main); border: 1px solid var(--border-color); border-bottom-left-radius: 2px; }
+        .action-bar { margin-top: 4px; display: flex; gap: 8px; align-items: center; }
+        .kb-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; padding: 4px 8px; border-radius: 4px; transition: background 0.2s, color 0.2s; display: flex; align-items: center; gap: 4px; }
+        .kb-btn:hover { background-color: var(--card-bg); color: var(--text-main); }
+        .kb-btn.saved { color: var(--success-green); cursor: default; }
+        .kb-btn.flagged { color: var(--error-red); cursor: default; }
+        .input-container { padding: 16px 24px; border-top: 1px solid var(--border-color); display: flex; gap: 12px; background-color: var(--sidebar-bg); }
+        .prompt-textarea { flex: 1; background-color: #1a2234; border: 1px solid var(--border-color); color: var(--text-main); padding: 12px 16px; border-radius: 8px; font-size: 0.95rem; resize: none; height: 48px; outline: none; }
+        .send-btn { background-color: var(--accent-blue); color: #ffffff; border: none; padding: 0 24px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .send-btn:hover { background-color: var(--accent-hover); }
     </style>
 </head>
 <body>
-
-    <sidebar>
-        <div class="sidebar-title">SSM Parameters</div>
-
-        <div class="control-group">
-            <label for="engineMode">Engine Mode</label>
-            <select id="engineMode">
-                <option value="auto" selected>Auto (Seamless Intent)</option>
-                <option value="factual">Factual (Strict)</option>
-                <option value="creative">Creative (Unbound)</option>
-            </select>
+    <div class="sidebar">
+        <h2>SSM Parameters</h2>
+        <div class="param-group">
+            <label for="temperature"><span>Temperature</span><span id="temp-val">(0.7)</span></label>
+            <input type="range" id="temperature" min="0.0" max="1.0" step="0.05" value="0.7">
         </div>
-
-        <div class="control-group">
-            <label for="temperature">Temperature (<span id="tempVal">0.5</span>)</label>
-            <input type="range" id="temperature" min="0.0" max="1.0" step="0.1" value="0.5">
-        </div>
-
-        <div class="control-group">
-            <label for="maxTokens">Max Tokens</label>
-            <input type="number" id="maxTokens" value="150" min="10" max="2048">
-        </div>
-
-        <div class="control-group">
-            <label for="topK">Top-K</label>
-            <input type="number" id="topK" value="40" min="1" max="100">
-        </div>
-
-        <div class="control-group">
-            <label for="repPenalty">Repetition Penalty</label>
-            <input type="number" id="repPenalty" value="1.5" min="1.0" max="2.0" step="0.1">
-        </div>
-    </sidebar>
-
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>Gutenberg SSM Engine</h1>
-            <div class="status-indicator">
-                <div class="status-dot"></div>
-                <span id="connectionStatus">Connected</span>
-            </div>
-        </div>
-
-        <div class="chat-messages" id="chatMessages">
-            <div class="message assistant">Hello! I am Gutenberg SSM, your fluid local engine. How can I help you today, Boss?</div>
-        </div>
-
-        <div class="chat-input-area">
-            <textarea id="userInput" placeholder="Type your prompt here... (Press Enter to send)" rows="1"></textarea>
-            <button class="send-btn" id="sendBtn">Send</button>
+        <div class="param-group">
+            <label for="max-tokens">Max Tokens</label>
+            <input type="number" id="max-tokens" value="250" min="10" max="1024">
         </div>
     </div>
-
+    <div class="main-container">
+        <div class="header">
+            <h1>Gutenberg SSM Engine</h1>
+            <div class="status-badge"><div class="status-dot" id="status-dot"></div><span id="status-text">Disconnected</span></div>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="message-wrapper assistant"><div class="bubble">Hello! I am Gutenberg SSM, your fluid local engine. How can I help you today, Boss?</div></div>
+        </div>
+        <div class="input-container">
+            <textarea id="prompt-input" class="prompt-textarea" placeholder="Type your prompt here... (Press Enter to send)"></textarea>
+            <button id="send-btn" class="send-btn">Send</button>
+        </div>
+    </div>
     <script>
-        const chatMessages = document.getElementById('chatMessages');
-        const userInput = document.getElementById('userInput');
-        const sendBtn = document.getElementById('sendBtn');
-        const engineMode = document.getElementById('engineMode');
-        const temperature = document.getElementById('temperature');
-        const tempVal = document.getElementById('tempVal');
-        const maxTokens = document.getElementById('maxTokens');
-        const topK = document.getElementById('topK');
-        const repPenalty = document.getElementById('repPenalty');
-        const connectionStatus = document.getElementById('connectionStatus');
-
+        const SERVER_URL = "http://127.0.0.1:18080";
+        const chatBox = document.getElementById("chat-box");
+        const promptInput = document.getElementById("prompt-input");
+        const sendBtn = document.getElementById("send-btn");
         let messageHistory = [];
 
-        temperature.addEventListener('input', (e) => {
-            tempVal.textContent = e.target.value;
-        });
-
-        // Robust API Base: Fallbacks to localhost if opened directly as file://
-        const host = window.location.hostname || '127.0.0.1';
-        const API_BASE = `http://${host}:18080`;
-
-        async function checkConnection() {
+        async function checkServerConnection() {
             try {
-                const res = await fetch(`${API_BASE}/`);
+                const res = await fetch(`${SERVER_URL}/`);
                 if (res.ok) {
-                    connectionStatus.textContent = "Connected";
-                } else {
-                    connectionStatus.textContent = "Server Error";
+                    document.getElementById("status-dot").classList.add("connected");
+                    document.getElementById("status-text").textContent = "Connected";
                 }
             } catch (e) {
-                connectionStatus.textContent = "Disconnected";
+                document.getElementById("status-dot").classList.remove("connected");
+                document.getElementById("status-text").textContent = "Disconnected";
             }
         }
-        setInterval(checkConnection, 5000);
+        checkServerConnection();
+        setInterval(checkServerConnection, 10000);
 
-        async function sendMessage() {
-            const text = userInput.value.trim();
-            if (!text) return;
+        function appendMessage(role, text) {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("message-wrapper", role);
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            bubble.textContent = text;
+            wrapper.appendChild(bubble);
+            chatBox.appendChild(wrapper);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            return { wrapper, bubble };
+        }
 
-            userInput.value = '';
-            appendMessage(text, 'user');
-            messageHistory.push({ role: 'user', content: text });
+        function addActionButtons(wrapper, userPrompt, assistantResponse, isSaveable) {
+            if (isSaveable === false) return;
 
-            const aiMsgDiv = appendMessage('Thinking...', 'assistant');
+            const actionBar = document.createElement("div");
+            actionBar.classList.add("action-bar");
+
+            // Thumbs Up Button (Save to KB)
+            const thumbsUpBtn = document.createElement("button");
+            thumbsUpBtn.classList.add("kb-btn");
+            thumbsUpBtn.innerHTML = `👍 Save to KB`;
+            thumbsUpBtn.addEventListener("click", async () => {
+                const res = await fetch(`${SERVER_URL}/api/kb/save`, {
+                    method: "POST", headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt: userPrompt, response: assistantResponse, category: "facts" })
+                });
+                if (res.ok) {
+                    thumbsUpBtn.classList.add("saved");
+                    thumbsUpBtn.innerHTML = `✓ Saved to KB`;
+                    thumbsUpBtn.disabled = true;
+                }
+            });
+
+            // X Button (Flag Error / Redundant)
+            const flagBtn = document.createElement("button");
+            flagBtn.classList.add("kb-btn");
+            flagBtn.innerHTML = `❌ Flag Error`;
+            flagBtn.addEventListener("click", async () => {
+                const res = await fetch(`${SERVER_URL}/api/kb/flag`, {
+                    method: "POST", headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt: userPrompt, response: assistantResponse })
+                });
+                if (res.ok) {
+                    flagBtn.classList.add("flagged");
+                    flagBtn.innerHTML = `✓ Flagged & Logged`;
+                    flagBtn.disabled = true;
+                }
+            });
+
+            actionBar.appendChild(thumbsUpBtn);
+            actionBar.appendChild(flagBtn);
+            wrapper.appendChild(actionBar);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function handleSend() {
+            const prompt = promptInput.value.trim();
+            if (!prompt) return;
+            promptInput.value = "";
+            sendBtn.disabled = true;
+
+            appendMessage("user", prompt);
+            messageHistory.push({ role: "user", content: prompt });
+            const { wrapper, bubble } = appendMessage("assistant", "");
+
+            let fullResponse = "";
+            let isSaveable = true;
 
             try {
-                const response = await fetch(`${API_BASE}/v1/chat/completions`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        messages: messageHistory,
-                        mode: engineMode.value,
-                        temperature: parseFloat(temperature.value),
-                        max_tokens: parseInt(maxTokens.value),
-                        top_k: parseInt(topK.value),
-                        repetition_penalty: parseFloat(repPenalty.value),
-                        stream: false
-                    })
+                const response = await fetch(`${SERVER_URL}/v1/chat/completions`, {
+                    method: "POST", headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ messages: messageHistory, max_tokens: 250, stream: true })
                 });
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder("utf-8");
 
-                if (!response.ok) throw new Error('Connection Error');
-
-                const data = await response.json();
-                const reply = data.response || data.text || "I'm here, Boss!";
-                
-                aiMsgDiv.textContent = reply;
-                messageHistory.push({ role: 'assistant', content: reply });
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            } catch (error) {
-                aiMsgDiv.textContent = "Connection Error: Make sure server.py is running!";
-                aiMsgDiv.style.color = "#f87171";
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    const chunk = decoder.decode(value, { stream: true });
+                    for (const line of chunk.split("\n")) {
+                        if (line.startsWith("data: ")) {
+                            const dataStr = line.replace("data: ", "").trim();
+                            if (dataStr === "[DONE]") break;
+                            try {
+                                const parsed = JSON.parse(dataStr);
+                                if (parsed.saveable !== undefined) isSaveable = parsed.saveable;
+                                const delta = parsed.choices[0]?.delta?.content || "";
+                                fullResponse += delta;
+                                bubble.textContent = fullResponse;
+                                chatBox.scrollTop = chatBox.scrollHeight;
+                            } catch (e) {}
+                        }
+                    }
+                }
+                messageHistory.push({ role: "assistant", content: fullResponse });
+                if (fullResponse.trim()) addActionButtons(wrapper, prompt, fullResponse, isSaveable);
+            } catch (err) {
+                bubble.textContent = "Error connecting to engine.";
+            } finally {
+                sendBtn.disabled = false;
+                promptInput.focus();
             }
         }
 
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `message ${sender}`;
-            msgDiv.textContent = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return msgDiv;
-        }
-
-        sendBtn.addEventListener('click', sendMessage);
-        userInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-            }
-        });
+        sendBtn.addEventListener("click", handleSend);
+        promptInput.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } });
     </script>
 </body>
 </html>

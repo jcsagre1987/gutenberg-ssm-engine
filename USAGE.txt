@@ -1,0 +1,17 @@
+==================================================
+GUTENBERG SSM EDGE ENGINE - USAGE GUIDE (v2.1)
+==================================================
+
+1. STARTING THE BACKEND SERVER
+   Open your terminal inside your project directory and launch the FastAPI server:
+   python server.py
+   
+   * Note: On first run, the server automatically downloads the Mamba 2.8B GGUF model from Hugging Face into your local cache. Subsequent launches start instantly.
+
+2. ACCESSING THE USER INTERFACE
+   Open your web browser and load index.html to interact with the Gutenberg SSM Engine UI.
+
+3. INTERACTION MODES
+   - Casual Social Chat: Greetings like "Hi", "Hello", or "How are you?" route instantly through conversationandsocialguidereference.json for natural, relaxed dialogue without invoking workflow overhead.
+   - Factual Queries: Direct questions like "What is socialism?", "What is meritocracy?", or "What is conservatism?" pull precision definitions instantly from your structured SQLite knowledge base (synced automatically from knowledgebasereference.json).
+   - Auto-Learning: Successful interactions automatically commit valid responses back to the local database, making subsequent lookups instantaneous.

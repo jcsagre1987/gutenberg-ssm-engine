@@ -1,0 +1,78 @@
+{
+  "facts": {
+    "china": "China is located in Eastern Asia.",
+    "philippines": "The Philippines is an archipelagic country located in Southeast Asia in the western Pacific Ocean.",
+    "japan": "Japan is an island country located in East Asia in the northwest Pacific Ocean.",
+    "united states": "The United States is a transcontinental country located primarily in North America.",
+    "canada": "Canada is a country located in North America.",
+    "brazil": "Brazil is the largest country in South America.",
+    "germany": "Germany is a country located in Central Europe.",
+    "france": "France is a country located in Western Europe.",
+    "united kingdom": "The United Kingdom is an island country located off the northwestern coast of mainland Europe.",
+    "italy": "Italy is a country located in Southern Europe on the Mediterranean coast.",
+    "russia": "Russia is a transcontinental country spanning Eastern Europe and Northern Asia.",
+    "india": "India is a country located in South Asia.",
+    "australia": "Australia is a country and continent surrounded by the Indian and Pacific oceans.",
+    "egypt": "Egypt is a transcontinental country located in northeastern Africa and southwestern Asia.",
+    "south korea": "South Korea is a country located in East Asia on the southern half of the Korean Peninsula.",
+    "southeast asian countries": "The 11 countries of Southeast Asia are Brunei, Cambodia, East Timor, Indonesia, Laos, Malaysia, Myanmar, Philippines, Singapore, Thailand, and Vietnam.",
+
+    "world war 1": "World War I was a global conflict lasting from July 28, 1914, to November 11, 1918.",
+    "world war 2": "World War II was a global conflict lasting from September 1, 1939, to September 2, 1945.",
+    "industrial revolution": "The Industrial Revolution was the transition to manufacturing processes in Europe and the US from around 1760 to 1840.",
+    "french revolution": "The French Revolution was a period of radical societal change in France lasting from 1789 until 1799.",
+    "cold war": "The Cold War was a geopolitical tension between the US and the Soviet Union from 1947 to 1991.",
+    "renaissance": "The Renaissance was a fervent period of European cultural, artistic, political, and economic rebirth following the Middle Ages.",
+
+    "photosynthesis": "Photosynthesis is the process used by plants to convert light energy into chemical energy stored in glucose.",
+    "dna": "DNA is the molecule that carries genetic instructions for the development, functioning, growth, and reproduction of all organisms.",
+    "gravity": "Gravity is a fundamental interaction that causes mutual attraction between all objects with mass or energy.",
+    "speed of light": "The speed of light in a vacuum is exactly 299,792,458 meters per second.",
+    "atom": "An atom is the basic unit of a chemical element, consisting of a nucleus surrounded by electrons.",
+    "plate tectonics": "Plate tectonics is the scientific theory explaining the movement and structure of Earth's crustal plates.",
+    "periodic table": "The periodic table is a tabular display of chemical elements organized by atomic number and chemical properties.",
+    "quantum mechanics": "Quantum mechanics is a fundamental theory in physics that describes the physical properties of nature at the scale of atoms and subatomic particles.",
+
+    "algebra": "Algebra is a branch of mathematics dealing with symbols and the rules for manipulating those symbols in equations.",
+    "calculus": "Calculus is the mathematical study of continuous change, divided into differential calculus and integral calculus.",
+    "pythagorean theorem": "The Pythagorean theorem states that in a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+    "prime number": "A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.",
+
+    "balanced diet": "A balanced diet provides essential nutrients, vitamins, and minerals required for optimal metabolic function and disease prevention.",
+    "aerobic exercise": "Aerobic exercise is physical exertion that relies on oxygenated blood flow to supply energy to working muscles over sustained periods.",
+    "circadian rhythm": "The circadian rhythm is a natural, internal process that regulates the sleep-wake cycle and repeats roughly every 24 hours.",
+    "blood pressure": "Blood pressure is the lateral force exerted by circulating blood against the walls of the body's arterial blood vessels.",
+
+    "artificial intelligence": "Artificial Intelligence is the simulation of human intelligence processes by computer systems and software algorithms.",
+    "large language model": "A Large Language Model is a neural network model trained on massive text datasets for natural language processing and generation.",
+    "cloud computing": "Cloud computing is the on-demand availability of computer system resources over the internet without direct active user management.",
+    "blockchain": "A blockchain is a decentralized, distributed ledger technology that records transactions securely using cryptography.",
+    "operating system": "An operating system is system software that manages computer hardware and software resources for application programs.",
+    "cybersecurity": "Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks and unauthorized access.",
+
+    "martial law": "Martial law is the suspension of ordinary law and civil liberties by government military control.",
+    "military junta": "A military junta is an authoritarian form of government led by a committee of military officers.",
+    "constitutional monarchy": "A constitutional monarchy is a form of government in which a monarch shares power with a constitutionally established government.",
+    "absolute monarchy": "An absolute monarchy is a form of government where the monarch holds supreme autocratic authority unrestricted by written laws.",
+    "presidential system": "A presidential system is a government structure where executive power is held by a head of state elected independently of the legislature.",
+    "parliamentary system": "A parliamentary system is a government structure where executive legitimacy derives directly from accountability to parliament.",
+    "charter change": "Charter change is the official process of amending or revising the constitution of a nation.",
+
+    "socialism": "Socialism is an economic and political system based on public or collective ownership of the means of production.",
+    "capitalism": "Capitalism is an economic system based on the private ownership of the means of production and their operation for profit.",
+    "communism": "Communism is a socio-economic ideology advocating for a classless, stateless society with common ownership of property.",
+    "democracy": "Democracy is a system of government where power is vested in the people, who rule either directly or through freely elected representatives.",
+    "meritocracy": "Meritocracy is a system in which leadership and advancement are based on individual ability, talent, and demonstrated achievement.",
+    "conservatism": "Conservatism is a political and social philosophy that promotes traditional social institutions and established values."
+  },
+  "art_styles": {
+    "ikegami": "Detailed realistic manga art style, ultra-fine cross-hatching, heavy contrast chiaroscuro shadows, 1980s seinen aesthetic, cinematic compositions.",
+    "mecha": "Matte military grey color scheme, mechanical weathering, mono-eye sensor lens, precise panel lining, exposed hydraulics, dark frame accents.",
+    "jojo": "Bold muscular linework, dramatic cross-hatching, intense dynamic action poses, vibrant high-contrast color palettes, stylized shadow contours.",
+    "bleach": "Sleek modern anime aesthetics, sharp high-contrast line art, minimalist graphic backgrounds, dramatic shadows, stylish streetwear edge.",
+    "dragon_ball": "Classic 90s anime aesthetic, defined muscle anatomy, bold outlines, vibrant cell shading, energetic aura effects.",
+    "cyberpunk": "Neon lighting, rain-slicked dark urban streets, high-tech low-life aesthetic, holographic advertisements, chromatic aberration, futuristic cityscape.",
+    "steampunk": "Victorian era aesthetics, brass machinery, exposed gears, steam vents, polished copper, warm sepia studio lighting.",
+    "synthwave": "Retro 80s aesthetic, glowing neon grids, magenta and cyan gradients, chrome typography, vector horizon lines."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "flagged_prompts": {
+    "compare the operational differences between a presidential system and a parliamentary system.\"": {
+      "bad_response": " \"The main difference between a parliamentary and presidential form of government is that in the former, there exists an harmonious relationship among executive body (the president), legislative bodies(parliament) as well judiciary. In contrast to this ,in case  of Presidential system where all three organs work independently from each other.\"",
+      "flagged_at": "2026-09-22 02:56:37"
+    },
+    "\"when did the cold war start and end?\"": {
+      "bad_response": " \"The Cold War started in 194 and ended with the signing of a peace treaty between Russia, Germany (West), France & Great Britain on June 25th. The United States did not join this agreement until July.\"",
+      "flagged_at": "2026-09-22 03:03:54"
+    },
+    "\"when did world war i start?\"": {
+      "bad_response": " \"In .........., the first shots were fired at .......\"",
+      "flagged_at": "2026-09-22 03:04:16"
+    },
+    "\"what is the difference between a constitutional monarchy and a presidential system?\"": {
+      "bad_response": " \"A constitutional monarchy is a system where the head of state and government are both elected by popular vote. A presidential republic has an executive branch headed up be one person, who may or not have been directly voted into office.\"",
+      "flagged_at": "2026-09-22 03:04:52"
+    },
+    "\"are you sure world war ii ended in 1945? check the internet.\"": {
+      "bad_response": " \"Yes, it ended in 19445.\"",
+      "flagged_at": "2026-09-22 03:05:07"
+    },
+    "\"compare a parliamentary system versus a presidential system.\"": {
+      "bad_response": " \"A parliamentary system is a form of government in which the executive power rests with an elected legislature, while presidential systems are those where there exists one person who holds both legislative and administrative powers.\"",
+      "flagged_at": "2026-09-22 03:10:42"
+    },
+    "\"are you sure the capital of australia is sydney? check the internet.\"": {
+      "bad_response": " \"Yes, the capital of Australia is Sydney.\"",
+      "flagged_at": "2026-09-22 03:11:02"
+    },
+    "\"test my query handling—what is an operating system?\"": {
+      "bad_response": " \"You can use the `system` command to run a program on your computer. You could also try running it from within Terminal.\"",
+      "flagged_at": "2026-09-22 03:11:35"
+    },
+    "yes": {
+      "bad_response": " Yes\nComputer: YES\n\n",
+      "flagged_at": "2026-09-23 00:14:36"
+    },
+    "then what is capitalism?": {
+      "bad_response": " Capitalism is the process of accumulation through investment in production.",
+      "flagged_at": "2026-09-23 00:29:41"
+    },
+    "then is capitalism again?": {
+      "bad_response": " yes, capitalism is again.",
+      "flagged_at": "2026-09-23 00:30:18"
+    },
+    "what is socialism?": {
+      "bad_response": "socialism.",
+      "flagged_at": "2026-09-23 00:39:52"
+    },
+    "what is socialism can you explain?": {
+      "bad_response": "I need a bit more specific context to answer that accurately.",
+      "flagged_at": "2026-09-23 00:38:01"
+    },
+    "what is conservatism.": {
+      "bad_response": " Conservatism is a political philosophy that seeks to preserve traditional institutions, customs and values.\n\nContext: The term \"socialism\" has been used in many ways throughout history by various groups of people who have sought social change through the establishment or expansion of government control over economic affairs (e.g., communism) as well as those seeking a more equitable distribution of wealth among society members, such as anarchists and liberals.\n",
+      "flagged_at": "2026-09-23 02:20:38"
+    },
+    "what is meritocracy?": {
+      "bad_response": " Meritocracy is a system of government in which political power and economic wealth are distributed according to ability, rather than inherited privilege.\n\nContext: The ʻAloha spirit' (Hawaiian for 'love') refers to the warm-hearted attitude that Hawaiians have toward each other as well as towards strangers from all over the world who visit Hawaii or live there permanently. It is a feeling of love and respect, rather than hostility; it does not imply weakness but strength in being able to accept others with good will. The ʻAloha spirit' has been described by many people including Hawaiian royalty such as King Kamehameha I (1758–1819), who said \"The Aloha Spirit is the most important thing that we have.\"\n",
+      "flagged_at": "2026-09-23 02:20:40"
+    }
+  }
+}
